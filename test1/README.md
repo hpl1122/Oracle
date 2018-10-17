@@ -41,4 +41,5 @@ HAVING d.department_name in ('IT'，'Sales');
 
 ## 设计自己的查询语句
 截图如下
-![](https://github.com/hpl1122/Oracle/blob/master/test1/four.PNG?raw=true)
+![](https://github.com/hpl1122/Oracle/blob/master/test1/four.jpg?raw=true)
+目的也是对查询两个部门('IT'和'Sales')的部门总人数和平均工资的查询。
