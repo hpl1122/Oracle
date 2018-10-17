@@ -37,3 +37,8 @@ HAVING d.department_name in ('IT'，'Sales');
 通过分析SQL语句各自的执行计划，判断哪个SQL语句是最优的。最后将你认为最优的SQL语句通过sqldeveloper的优化指导工具进行优化指导
 截图如下
 ![](https://github.com/hpl1122/Oracle/blob/master/test1/one.PNG?raw=true)
+
+
+## 设计自己的查询语句
+截图如下
+![](https://github.com/hpl1122/Oracle/blob/master/test1/four.PNG?raw=true)
