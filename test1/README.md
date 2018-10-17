@@ -17,6 +17,8 @@ where d.department_id = e.department_id
 and d.department_name in ('IT'，'Sales')
 GROUP BY department_name;
 ```
+截图如下
+![]()
 
 - 查询2：
 ```SQL
