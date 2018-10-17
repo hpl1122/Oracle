@@ -31,3 +31,6 @@ HAVING d.department_name in ('IT'，'Sales');
 ```
 截图如下
 ![](https://github.com/hpl1122/Oracle/blob/master/test1/two.PNG?raw=true)
+
+
+## 优化建议
