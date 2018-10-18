@@ -42,4 +42,11 @@ HAVING d.department_name in ('IT'，'Sales');
 ## 设计自己的查询语句
 截图如下
 ![](https://github.com/hpl1122/Oracle/blob/master/test1/four.jpg?raw=true)
+
+
 目的也是对查询两个部门('IT'和'Sales')的部门总人数和平均工资的查询。
+
+
+
+分析：left join 是left outer join的简写，它的全称是左外连接，是外连接中的一种。
+左(外)连接，左表(a_table)的记录将会全部表示出来，而右表(b_table)只会显示符合搜索条件的记录。右表记录不足的地方均为NULL。
