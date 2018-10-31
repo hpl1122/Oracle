@@ -49,7 +49,7 @@ Oracle有一个开发者角色resource，可以创建表、过程、触发器等
 
 截图如下
 ![](https://github.com/hpl1122/Oracle/blob/master/test2/a5.png?raw=true)
-![](https://github.com/hpl1122/Oracle/blob/master/test2/a6.png?raw=true)
+![](https://github.com/hpl1122/Oracle/blob/master/test2/a6.jpg?raw=true)
 ![](https://github.com/hpl1122/Oracle/blob/master/test2/a7.png?raw=true)
 ![](https://github.com/hpl1122/Oracle/blob/master/test2/a8.png?raw=true)
 - autoextensible是显示表空间中的数据文件是否自动增加。
