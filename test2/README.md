@@ -17,4 +17,41 @@ Oracle有一个开发者角色resource，可以创建表、过程、触发器等
 - 第1步：以system登录到pdborcl，创建角色con_res_view和用户new_user，并授权和分配空间：
 
 截图如下
-![](https://github.com/hpl1122/Oracle/blob/master/test1/three.PNG?raw=true)
+![](https://github.com/hpl1122/Oracle/blob/master/test2/a1.png?raw=true)
+截图如下
+![](https://github.com/hpl1122/Oracle/blob/master/test2/a2.png?raw=true)
+
+
+> 语句“ALTER USER new_user QUOTA 50M ON users;”是指授权new_user用户访问users表空间，空间限额是50M。
+
+- 第2步：新用户new_user连接到pdborcl，创建表mytable和视图myview，插入数据，最后将myview的SELECT对象权限授予hr用户。
+
+截图如下
+![](https://github.com/hpl1122/Oracle/blob/master/test2/a3.png?raw=true)
+
+- 第3步：用户hr连接到pdborcl，查询new_user授予它的视图myview
+
+截图如下
+![](https://github.com/hpl1122/Oracle/blob/master/test2/a4.png?raw=true)
+
+## 数据库和表空间占用分析
+
+> 当全班同学的实验都做完之后，数据库pdborcl中包含了每个同学的角色和用户。
+> 所有同学的用户都使用表空间users存储表的数据。
+> 表空间中存储了很多相同名称的表mytable和视图myview，但分别属性于不同的用户，不会引起混淆。
+> 随着用户往表中插入数据，表空间的磁盘使用量会增加。
+
+## 查看数据库的使用情况
+
+
+以下样例查看表空间的数据库文件，以及每个文件的磁盘占用情况。
+
+
+截图如下
+![](https://github.com/hpl1122/Oracle/blob/master/test2/a5.png?raw=true)
+![](https://github.com/hpl1122/Oracle/blob/master/test2/a6.png?raw=true)
+![](https://github.com/hpl1122/Oracle/blob/master/test2/a7.png?raw=true)
+![](https://github.com/hpl1122/Oracle/blob/master/test2/a8.png?raw=true)
+- autoextensible是显示表空间中的数据文件是否自动增加。
+
+- MAX_MB是指数据文件的最大容量。
