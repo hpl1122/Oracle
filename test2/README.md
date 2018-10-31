@@ -15,3 +15,6 @@ Oracle有一个开发者角色resource，可以创建表、过程、触发器等
 对于以下的对象名称con_res_view，new_user.
 
 - 第1步：以system登录到pdborcl，创建角色con_res_view和用户new_user，并授权和分配空间：
+
+截图如下
+![](https://github.com/hpl1122/Oracle/blob/master/test1/three.PNG?raw=true)
