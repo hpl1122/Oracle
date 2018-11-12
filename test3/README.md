@@ -94,6 +94,49 @@ PARTITION BY RANGE (order_date)
 );
 ```
 
+在LTT用户中创建分区表使用帐号LTT创建表order_details，按订单日期分区:
+```sql
+CREATE TABLE LTT.order_details 
+(
+id NUMBER(10, 0) NOT NULL 
+, order_id NUMBER(10, 0) NOT NULL
+, product_id VARCHAR2(40 BYTE) NOT NULL 
+, product_num NUMBER(8, 2) NOT NULL 
+, product_price NUMBER(8, 2) NOT NULL 
+, CONSTRAINT order_details_fk1 FOREIGN KEY  (order_id)
+REFERENCES orders  (  order_id   )
+ENABLE 
+) 
+TABLESPACE USERS 
+PCTFREE 10 INITRANS 1 
+STORAGE (   BUFFER_POOL DEFAULT ) 
+NOCOMPRESS NOPARALLEL
+PARTITION BY REFERENCE (order_details_fk1)
+(
+PARTITION PARTITION_BEFORE_2016 
+NOLOGGING 
+TABLESPACE USERS 
+) 
+NOCOMPRESS NO INMEMORY, 
+PARTITION PARTITION_BEFORE_2017 
+NOLOGGING 
+TABLESPACE USERS02
+) 
+NOCOMPRESS NO INMEMORY  
+);
+```
 
+插入数据的语句:
+```sql
+INSERT INTO LTT.orders (order_id,customer_name ,customer_tel ,order_date ,employee_id,discount)
+     SELECT 'test1','test1','test1'...,20 FROM DUAL
+     UNION ALL SELECT 'test2','test2','test2'...,30 FROM DUAL
+     UNION ALL SELECT 'test3','test3','test3'...,40 FROM DUAL
+```
+##  实验总结：
+在实验过程中,以ltt的用户身份进入数据库，使用命令 ls -lh 可以查看3个表空间：
+ USERS,USERS02,USERS03，创建两张表：订单表(orders)与订单详表(order_details)。
+ 使用该帐号创建分区表orders和order_details，按订单日期分区。
+ 分区的优点：增强可用性：如果表的一个分区由于系统故障而不能使用，表的其余好的分区仍然可以使用； 减少关闭时间：如果系统故障只影响表的一部分分区，      那么只有这部分分区需要修复，故能比整个大表修复花的时间更少；  维护轻松：如果需要重建表，独立管理每个分区比管理单个大表要轻松得多；  均衡I / O :      可以把表的不同分区分配到不同的磁盘来平衡I / O 改善性能； 改善性能：对大表的查询、增加、修改等操作可以分解到表的不同分区来并行执行，可使运行速度      更快； 分区对用户透明，最终用户感觉不到分区的存在。
 
 
